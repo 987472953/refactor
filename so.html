@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script>
+        var socket;
+
+        function connectWebSocket(i) {
+            socket = new WebSocket("ws://localhost:8080/websocket/" + i);
+
+            socket.onopen = function () {
+                console.log("WebSocket 连接成功");
+            };
+
+            socket.onmessage = function (event) {
+                console.log("收到服务端消息：" + event.data);
+            };
+
+            socket.onclose = function () {
+                console.log("WebSocket 连接关闭");
+            };
+        }
+
+        function connectWebSocket2000() {
+            for (let i = 0; i < 1000; i++) {
+                connectWebSocket(i)
+            }
+        }
+
+        function sendMessage() {
+            socket.send("客户端：你好");
+        }
+    </script>
+</head>
+
+<body>
+    <button onclick="connectWebSocket2000()">连接 WebSocket</button>
+    <button onclick="sendMessage()">发送消息</button>
+</body>
+
+</html>
