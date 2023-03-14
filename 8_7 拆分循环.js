@@ -1,4 +1,10 @@
 //拆分循环
+/**
+ * 让一个循环只做一件事情
+ */
+// 复制一遍循环代码。
+// 识别并移除循环中的重复代码， 使每个循环只做一件事。
+// 测试。
 function oldLoop() {
     let averageAge = 0;
     let totalSalary = 0;
@@ -8,6 +14,7 @@ function oldLoop() {
     }
     averageAge = averageAge / people.length;
 }
+// 重构后
 function newLoop() {
     let totalSalary = 0;
     for (const p of people) {

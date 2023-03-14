@@ -1,3 +1,12 @@
+// 以查询取代参数
+/**
+ * 以函数取代参数
+ * 函数的参数列表应该总结该函数的可变性
+ * 参数列表应该尽量避免重复，并且参数列表越短就越容易理解
+ */
+// 如果有必要， 使用 提炼函数 将参数的计算过程提炼到一个独立的函数中。
+// 将函数体内引用该参数的地方改为调用新建的函数。 每次修改后执行测试。
+// 全部替换完成后， 使用 改变函数声明 将该参数去掉。
 availableVacation(anEmployee, anEmployee.grade);
 function availableVacation(anEmployee, grade) {
     // calculate vacation...

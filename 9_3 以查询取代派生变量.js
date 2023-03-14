@@ -1,5 +1,15 @@
 // 以查询取派生变量
-class D {
+/**
+ *
+ */
+// 识别出所有对变量做更新的地方。 如有必要， 用 拆分变量 分割各个更新点。
+// 新建一个函数， 用于计算该变量的值。
+// 用引入 断言 断言该变量和计算函数始终给出同样的值。
+// 测试。
+// 修改读取该变量的代码， 令其调用新建的函数。
+// 测试。
+// 用 移除死代码 去掉变量的声明和赋值。
+class Old {
     get discountedTotal() { return this._discountedTotal; }
     set discount(aNumber) {
         const old = this._discount;
