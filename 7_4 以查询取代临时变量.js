@@ -1,20 +1,31 @@
 // 以查询取代临时变量
-// 那些只被计算一次且之后不再被修改的变量
+/**
+ * 那些只被计算一次且之后不再被修改的变量
+ */
+// 检查变量在使用前是否已经完全计算完毕， 检查计算它的那段代码是否每次都
+// 能得到一样的值。
+// 如果变量目前不是只读的， 但是可以改造成只读变量， 那就先改造它。
+// 测试。
+// 将为变量赋值的代码段提炼成函数。
+// 测试。
+// 应用 内联变量 手法移除临时变量。
 // const basePrice = this._quantity * this._itemPrice;
-if (basePrice > 1000)
-    return basePrice * 0.95;
-else
-    return basePrice * 0.98;
-
+function oldFun() {
+    if (basePrice > 1000)
+        return basePrice * 0.95;
+    else
+        return basePrice * 0.98;
+}
 // 重构
 // get basePrice() { this._quantity * this._itemPrice; }
 // ...
-if (this.basePrice > 1000)
-    return this.basePrice * 0.95;
-else
-    return this.basePrice * 0.98;
+function newFun() {
+    if (this.basePrice > 1000)
+        return this.basePrice * 0.95;
+    else
+        return this.basePrice * 0.98;
+}
 
-    
 // 1
 class Order {
     constructor(quantity, item) {

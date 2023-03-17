@@ -1,4 +1,4 @@
-//对局部变量再赋值
+// 对局部变量再赋值
 function printOwing(invoice) {
     let outstanding = 0;
     printBanner();
